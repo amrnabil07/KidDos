@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>body {
+    /* Location of the image */
+    background-image: url(https://norwichguitaracademy.co.uk/wp-content/uploads/2017/09/NGAblackboard.jpg);
+
+    /* Image is centered vertically and horizontally at all times */
+    background-position: center center;
+
+    /* Image doesn't repeat */
+    background-repeat: no-repeat;
+
+    /* Makes the image fixed in the viewport so that it doesn't move when
+       the content height is greater than the image height */
+    background-attachment: fixed;
+
+    /* This is what makes the background image rescale based on its container's size */
+    background-size: cover;
+
+    /* Pick a solid background color that will be displayed while the background image is loading */
+    background-color:black;
+
+    font-family: 'Fredericka the Great', cursive;
+    color: white;
+    font-size: 35px;
+    font-weight: 400;
+    text-align: center;
+    /* SHORTHAND CSS NOTATION
+     * background: url(background-photo.jpg) center center cover no-repeat fixed;
+     */
+  }
+
+  /* For mobile devices */
+  @media only screen and (max-width: 500px) {
+    body {
+      /* The file size of this background image is 93% smaller
+       * to improve page load speed on mobile internet connections */
+      background-image: url(https://norwichguitaracademy.co.uk/wp-content/uploads/2017/09/NGAblackboard.jpg);
+    }
+  	}
+    #num{
+    border-radius: 5px;
+    border: 2px;
+    padding: 20px;
+    width: 200px;
+    height: 13px;
+    font-size: 31px;
+    font-weight: 400;
+}
+
+.errMsg {
+  color: red;
+  font-size: 30px;
+  font-weight: 400;
+  text-shadow:0px 1px 0px #283966;
+}
+button{
+  background-color: white;
+  border-radius: 27px;
+  border: none;
+  color: solid black;
+  padding: 11px 22px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow:0px 1px 0px #283966;
+  display: inline-block;
+  font-family: 'Amatic SC', cursive;
+  font-size: 27px;
+  margin: 1px 1px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}</style>
+</head>
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Fredericka+the+Great|Open+Sans+Condensed:700|Oswald:600" rel="stylesheet">
+<body>
+<h1> Times Table</h1>
+<form>
+  Enter an integer from 1 to 9:
+  <input id="num" type="text" size="30">
+  <button type="button" onclick="getTable()">Generate </button>
+</form>
+  <span id="error" class="errMsg"></span>
+<center><table><tr><td id="table1" style="font-size: 35px;font-weight: 400;text-align: left;width:65%"></td>
+<td id="table2" style="font-size: 35px;font-weight: 400;text-align:right; width:50%;text-align:left;"></td>
+  
+  </tr></table></center>
+<script>function getTable()
+{
+var num=document.getElementById("num").value;
+if(!((num<10) && (num>0))){
+document.getElementById("error").innerHTML="ERROR!"+"&nbsp"+ num + "&nbsp"+"is not valid";
+return false;
+}else{
+    var product1="";
+    var product2="";
+for (var i=1; i<10;i++)
+{
+  product1+= num +"&nbsp" + "x"+ "&nbsp" + i +"&nbsp" + "=" +"&nbsp"+(num*i)+"</br>" ;
+  product2+= "<li>"+ num +"&nbsp" + "x"+ "&nbsp" + i +"&nbsp" + "=" +"&nbsp"+(num*i)+"</li>";
+}
+document.getElementById("error").innerHTML = "";
+document.getElementById("table1").innerHTML = product1;
+
+
+}
+}
+</script>
+</body>
+</html>
